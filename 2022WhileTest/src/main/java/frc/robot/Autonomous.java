@@ -1,0 +1,21 @@
+package frc.robot;
+
+public class Autonomous extends Robot {
+
+    Autonomous() {
+
+    }
+
+    public void wallLeft2Ball() {
+        shooter.dropIntake();
+        shooter.autoShoot(0.35);
+        drive.driveToTargetBwd(98186.0); // this goes from the wall to pushing the red ball out of the way
+        drive.turnRight(75.0); // turns towards blue ball
+        drive.driveToTargetFwdwIntake(-74000.0); // this drives towards the blue ball while intaking
+        shooter.autoIntake(0.4);
+        drive.turnLeft(100); // turns left back towards goal
+        drive.driveToTargetFwd(-110000.0); // drives towards goal
+        shooter.kickDownAuto(); // kicks ball down
+        shooter.autoShoot(0.35); // shoots
+    }
+}
